@@ -1,0 +1,29 @@
+wc = rws.getRobWorkStudio():getWorkCell()
+state = wc:getDefaultState()
+device = wc:findDevice("Feeder")
+
+function setQ(q)
+qq = rw.Q(#q,q[1])
+device:setQ(qq,state)
+rws.getRobWorkStudio():setState(state)
+rw.sleep(0.08)
+end
+
+
+setQ({0})
+
+for t = 0, 100,1 do
+
+	for i = 0,0.08,0.01 do
+		setQ({i})
+		print(i)
+	end
+
+	for i = 0.08,0,-0.01 do
+		setQ({i})
+		print(i)
+	end
+
+setQ({0})
+
+end
