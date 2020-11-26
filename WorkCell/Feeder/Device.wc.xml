@@ -1,0 +1,79 @@
+<ParallelDevice name="Feeder">
+ 
+<Frame name="Base">
+	<Pos>-0 0 0 </Pos> 
+	<RPY>0 0 0</RPY>
+</Frame>
+ 
+ <!-- PUT YOUR JOINTS HERE ONE AT A TIME  --> 
+ 
+  <Frame name="Frame0"  refframe="Base">
+    <RPY> 0 0 -30</RPY> 
+    <Pos> -0.3256 -0.381 0.2424 </Pos> 
+ </Frame> 
+ 
+ <Joint name="Joint0" refframe="Frame0" type="Prismatic">
+    <RPY> 0 0 0 </RPY> 
+    <Pos> 0 -0.018 0.004 </Pos>
+    <PosLimit min="0" max="0.08" />
+    <VelLimit max="0.3" />
+    <AccLimit max="1" />
+ </Joint>
+
+ <Joint name="Joint1"  refframe="Frame0" type="Prismatic">
+    <RPY> 0 0 0     </RPY> 
+    <Pos> 0 0 0.004 </Pos>
+    <Depend on="Joint0" gain="-1" offset="0" />
+ </Joint> 
+ 
+ 
+ <!-- PUT YOUR DRAWABLES HERE ONE AT THE TIME --> 
+ 
+ <Drawable name="Main_Body" refframe="Base">
+  <RPY> 0 0 0  </RPY> 
+  <Pos> 0 0 0 </Pos>
+  <Polytope file="Geometry/main_body" />
+ </Drawable>
+  
+ <Drawable name="Step_1" refframe="Joint0">
+  <RPY> -90 0 90 </RPY> 
+  <Pos> 0 0 -0.005</Pos>
+  <Polytope file="Geometry/step1"/>
+ </Drawable>
+ 
+ <Drawable name="Step_2" refframe="Joint1">
+  <RPY> -90 0 90 </RPY> 
+  <Pos> 0 0 0.15</Pos>
+  <Polytope file="Geometry/step2"/>
+ </Drawable>
+ 
+  <Drawable name="Step_3" refframe="Joint0">
+  <RPY> -90 0 90 </RPY> 
+  <Pos> 0 0.036 0.15  </Pos>
+  <Polytope file="Geometry/step3"/>
+ </Drawable>
+ 
+ <Drawable name="Step_4" refframe="Joint1">
+  <RPY> -90 0 90 </RPY> 
+   <Pos> 0 0.036 0.3 </Pos>
+  <Polytope file="Geometry/step4"/>
+ </Drawable>
+ 
+ <Drawable name="Step_5" refframe="Joint0">
+  <RPY> -90 0 90 </RPY> 
+   <Pos> 0 0.072 0.295 </Pos>
+  <Polytope file="Geometry/step5"/>
+ </Drawable>
+ 
+ <Drawable name="Step_6" refframe="Joint1">
+  <RPY> -90 0 90 </RPY> 
+  <Pos> 0 0.072 0.45 </Pos>
+  <Polytope file="Geometry/step6"/>
+ </Drawable>
+  
+ <CollisionSetup file="CollisionSetup.prox.xml" />
+
+ <!-- The home position must have the same length as joints you have inserted -->
+ <Q name="Home">0 0</Q>
+
+</ParallelDevice>

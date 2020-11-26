@@ -1,0 +1,18 @@
+<CollisionSetup>
+  <Exclude>
+    <FramePair first="Base" second="Joint0"/>
+	<FramePair first="Base" second="Joint1"/>
+	<FramePair first="Base" second="Frame1"/>
+	<FramePair first="Base" second="Frame2"/>
+	<FramePair first="Base" second="Frame3"/>
+	<FramePair first="Base" second="Frame4"/>
+	<FramePair first="Base" second="Frame5"/>
+	<FramePair first="Base" second="Frame6"/>
+	<FramePair first="Joint0" second="Joint1"/>
+	<FramePair first="Frame1" second="Frame2"/>
+	<FramePair first="Frame2" second="Frame3"/>
+	<FramePair first="Frame3" second="Frame4"/>
+	<FramePair first="Frame4" second="Frame5"/>
+	<FramePair first="Frame5" second="Frame6"/>
+  </Exclude>
+</CollisionSetup>

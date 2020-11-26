@@ -1,0 +1,11 @@
+<WorkCell name="FeederWorkCell">
+
+<Frame name="Feeder" refframe="WORLD">
+   <RPY> 180 0 0 </RPY> <Pos> 0 0 0 </Pos>
+</Frame>
+
+<Include file="Feeder/Device.wc.xml" />	
+
+<CollisionSetup file="SceneCollisionSetup.prox.xml" /> 
+
+</WorkCell>
